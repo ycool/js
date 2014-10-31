@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// http://www.itint5.com/oj/#23
+
 var decToExcel = function (n) {
 	var s = "";
 	var d = 0;

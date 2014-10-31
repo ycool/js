@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+http://www.itint5.com/oj/#17
+
 function isFromTwoString(s1, s2, s3) {
 	if (s1.length + s2.length != s3.length) {
 		return false;
