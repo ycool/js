@@ -1,0 +1,17 @@
+{
+  "name": "finance_console",
+  "version": "0.0.0",
+  "description": "ERROR: No README data found!",
+  "main": "stock.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "yahoo-finance": "~0.2.10",
+    "colors": "~1.0.3",
+    "lodash": "~2.4.1",
+    "util": "~0.10.3"
+  }
+}

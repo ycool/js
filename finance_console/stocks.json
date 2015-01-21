@@ -1,0 +1,125 @@
+{
+ "stocks": [
+ 	"BAC",
+ 	"BIDU",
+ 	"GOOG",
+ 	"YHOO",
+
+ 	"SH",
+ 	"SPY",
+ 	"SSO",
+ 	"SDS",
+ 	"UPRO",
+ 	"SPXU",
+
+ 	"IWM",
+ 	"RWM",
+ 	"UWM",
+ 	"TWM",
+ 	"TNA",
+ 	"TZA",
+
+ 	"MDY",
+ 	"MYY",
+ 	"MVV",
+ 	"MZZ",
+ 	"MIDU",
+ 	"MIDZ",	
+
+ 	"QQQ",
+ 	"PSQ",
+ 	"QLD",
+ 	"QID",
+ 	"TQQQ",
+ 	"SQQQ",
+
+ 	"SMH",
+ 	"USD",
+ 	"SSG",
+ 	"SOXL",
+ 	"SOXS",
+
+ 	"XLF",
+ 	"SEF",
+ 	"UYG",
+ 	"SKF",
+ 	"FAS",
+ 	"FAZ",
+
+ 	"IYR",
+ 	"REK",
+ 	"URE",
+ 	"SRS",
+ 	"DRN",
+ 	"DRV",
+
+ 	"XLE",
+ 	"DDG",
+ 	"DIG",
+ 	"DUG",
+ 	"ERX",
+ 	"ERY",
+
+ 	"XLB",
+ 	"SBM",
+ 	"UYM",
+ 	"SMN",
+ 	"MATL",
+ 	"MATS",
+
+ 	"GDX",
+ 	"NUGT",
+ 	"DUST",
+
+ 	"EEM",
+ 	"EUM",
+ 	"EET",
+ 	"EEV",
+ 	"EDC",
+ 	"EDZ",
+
+ 	"FXI",
+ 	"YXI",
+ 	"XPP",
+ 	"FXP",
+ 	"YINN",
+ 	"YANG",
+
+ 	"VXX",
+ 	"XIV",
+ 	"UVXY",
+ 	"SVXY",
+
+ 	"USO",
+ 	"DNO",
+ 	"UCO",
+ 	"SCO",
+
+ 	"GLD",
+ 	"DGZ",
+ 	"DGP",
+ 	"DZZ",
+
+ 	"SLV",
+ 	"AGQ",
+ 	"ZSL",
+
+ 	"UUP",
+ 	"UDN",
+ 	"EUO",
+ 	"ULE",
+
+ 	"FXE",
+ 	"UUP",
+ 	"ULE",
+ 	"EUO",
+
+ 	"TLT",
+ 	"TBF",
+ 	"UBT",
+ 	"TBT",
+ 	"TMF",
+ 	"TMV"
+
+ ]
+}
