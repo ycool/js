@@ -1,14 +1,17 @@
 <head>
-  <title>jt</title>
+  <title>bidword signature</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Bid Word => Signature</h1>
 
   {{> hello}}
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  <form class="ads">
+  	<input type="text" name="bidword" size=100 placeholder="Type bidword">
+  </form>
+  <p>sign1: {{sign1}} sign2: {{sign2}}</p>
+
 </template>

@@ -1,18 +1,27 @@
+
 if (Meteor.isClient) {
   // counter starts at 0
-  Session.setDefault('counter', 0);
+  Session.setDefault('sign1', 0);
+  Session.setDefault('sign2', 0);
 
   Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+    sign1: function () {
+      return Session.get('sign1');
+    },
+    sign2: function () {
+      return Session.get('sign2');
     }
   });
 
   Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
+    'keyup .ads' : function (event, template) {
+      // var bidword = $('#bidword').val();
+      var bidword = event.target.value;
+      console.log('bidword:', bidword);
+      var s = sign_fs64(bidword);
+      Session.set('sign1', s[0]);
+      Session.set('sign2', s[1]);
+    },
   });
 }
 
