@@ -75,6 +75,7 @@ function getsigns_24_1(bidword) {
     
     while (i < bidword.length) {
        	itemp += bidword.charCodeAt(i) * Mod_Prime_List_1[0xFF & (i++)]; 
+        itemp = itemp >>> 0; // convert to uint32
     }
     return itemp;
 }
@@ -85,7 +86,10 @@ function getsigns_24_2(bidword) {
     
     
     while (i < bidword.length) {
+        console.log(i, ":", bidword.charCodeAt(i), ":", 
+          Mod_Prime_List_2[0xFF & i], ":", itemp);
        	itemp += bidword.charCodeAt(i) * Mod_Prime_List_2[0xFF & (i++)]; 
+        itemp = itemp >>> 0;  // convert to uint32
     }
     return itemp;
 }

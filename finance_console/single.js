@@ -25,7 +25,7 @@ var FIELDS = _.flatten([
 // Misc
 ['t7', 't6', 'i5', 'l2', 'l3', 'v1', 'v7', 's6', 'e1']
 ]);
-var SYMBOL = 'BIDU';
+var SYMBOL = 'XLE';
 yahooFinance.snapshot({
   fields: FIELDS,
   symbol: SYMBOL

@@ -13,16 +13,36 @@ if (Meteor.isClient) {
     }
   });
 
+  // var iconv = require('mrt:iconv-lite');
+  // console.log("iconv", iconv);
+  // console.log(iconv.encode("abc", 'GBK'));
+  // var iconv = new Iconv('GBK', 'UTF-8//TRANSLIT//IGNORE');
+
   Template.hello.events({
     'keyup .ads' : function (event, template) {
       // var bidword = $('#bidword').val();
       var bidword = event.target.value;
       console.log('bidword:', bidword);
-      var s = sign_fs64(bidword);
+      // console.log(iconv);
+      // var bidword_gbk = iconv.encode(bidword, 'gbk');
+      var s = sign_fs64(bidword); 
       Session.set('sign1', s[0]);
       Session.set('sign2', s[1]);
     },
   });
+
+  getPackageName = function() {
+    var p = Package['mrt:iconv-lite'];
+    console.log(p);
+    console.log(p.encode("abc", 'GBK'));
+    for(var packageName in Package) {
+        console.log(packageName);
+    } 
+}
+
+Meteor.startup(function() {
+    getPackageName(); 
+});
 }
 
 if (Meteor.isServer) {
