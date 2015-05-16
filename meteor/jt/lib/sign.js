@@ -68,13 +68,60 @@ var Mod_Prime_List_2 = [
   14396166,  11211915,   1349211,   9854036,   6053366,   6159388,  16523821,   2244028
 ];
 
+// function getsigns_24_1(bidword) {
+//     var i = 0;
+//     var itemp = 0;
+    
+    
+//     while (i < bidword.length) {
+//        	itemp += bidword.charCodeAt(i) * Mod_Prime_List_1[0xFF & (i++)]; 
+//         itemp = itemp >>> 0; // convert to uint32
+//     }
+//     return itemp;
+// }
+
+// function getsigns_24_2(bidword) {
+//     var i = 0;
+//     var itemp = 0;
+    
+    
+//     while (i < bidword.length) {
+//         console.log(i, ":", bidword.charCodeAt(i), ":", 
+//           Mod_Prime_List_2[0xFF & i], ":", itemp);
+//        	itemp += bidword.charCodeAt(i) * Mod_Prime_List_2[0xFF & (i++)]; 
+//         itemp = itemp >>> 0;  // convert to uint32
+//     }
+//     return itemp;
+// }
+
+// sign_fs64 = function sign_fs64(bidword) {
+// 	var sign1 = 0;
+// 	var sign2 = 0;
+// 	if (bidword.length <= 4) {		
+// 		for (var i = 0; i < bidword.length; i++) {
+// 			sign1 |= (bidword.charCodeAt(i) << i * 8);
+// 		}
+// 	} else if (bidword.length <= 8) {
+// 		for (var i = 0; i < 4; i++) {
+// 			sign1 |= (bidword.charCodeAt(i) << (i * 8));
+// 		}
+// 		for (var i = 0; i < 4; i++) {
+// 			sign2 |= (bidword.charCodeAt(4 + i) << (i * 8));
+// 		}
+// 	} else {
+// 		sign1 = getsigns_24_1(bidword);
+// 		sign2 = getsigns_24_2(bidword);
+// 	}
+// 	return [sign1, sign2];
+// }
+
 function getsigns_24_1(bidword) {
     var i = 0;
     var itemp = 0;
     
     
     while (i < bidword.length) {
-       	itemp += bidword.charCodeAt(i) * Mod_Prime_List_1[0xFF & (i++)]; 
+        itemp += bidword[i] * Mod_Prime_List_1[0xFF & (i++)]; 
         itemp = itemp >>> 0; // convert to uint32
     }
     return itemp;
@@ -86,31 +133,32 @@ function getsigns_24_2(bidword) {
     
     
     while (i < bidword.length) {
-        console.log(i, ":", bidword.charCodeAt(i), ":", 
+        console.log(i, ":", bidword[i], ":", 
           Mod_Prime_List_2[0xFF & i], ":", itemp);
-       	itemp += bidword.charCodeAt(i) * Mod_Prime_List_2[0xFF & (i++)]; 
+        itemp += bidword[i] * Mod_Prime_List_2[0xFF & (i++)]; 
         itemp = itemp >>> 0;  // convert to uint32
     }
     return itemp;
 }
 
+// Input: Buffer not string
 sign_fs64 = function sign_fs64(bidword) {
-	var sign1 = 0;
-	var sign2 = 0;
-	if (bidword.length <= 4) {		
-		for (var i = 0; i < bidword.length; i++) {
-			sign1 |= (bidword.charCodeAt(i) << i * 8);
-		}
-	} else if (bidword.length <= 8) {
-		for (var i = 0; i < 4; i++) {
-			sign1 |= (bidword.charCodeAt(i) << (i * 8));
-		}
-		for (var i = 0; i < 4; i++) {
-			sign2 |= (bidword.charCodeAt(4 + i) << (i * 8));
-		}
-	} else {
-		sign1 = getsigns_24_1(bidword);
-		sign2 = getsigns_24_2(bidword);
-	}
-	return [sign1, sign2];
+  var sign1 = 0;
+  var sign2 = 0;
+  if (bidword.length <= 4) {    
+    for (var i = 0; i < bidword.length; i++) {
+      sign1 |= (bidword[i] << i * 8);
+    }
+  } else if (bidword.length <= 8) {
+    for (var i = 0; i < 4; i++) {
+      sign1 |= (bidword[i] << (i * 8));
+    }
+    for (var i = 0; i < 4; i++) {
+      sign2 |= (bidword[4 + i] << (i * 8));
+    }
+  } else {
+    sign1 = getsigns_24_1(bidword);
+    sign2 = getsigns_24_2(bidword);
+  }
+  return [sign1, sign2];
 }

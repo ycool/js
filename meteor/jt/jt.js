@@ -23,30 +23,35 @@ if (Meteor.isClient) {
       // var bidword = $('#bidword').val();
       var bidword = event.target.value;
       console.log('bidword:', bidword);
+      Meteor.call("server_sign_fs64", bidword, function(error, result) {
+        console.log("server return:", result); //s[0], ":", s[1]);
+        Session.set('sign1', result[0]);
+        Session.set('sign2', result[1]);
+      });
       // console.log(iconv);
       // var bidword_gbk = iconv.encode(bidword, 'gbk');
-      var s = sign_fs64(bidword); 
-      Session.set('sign1', s[0]);
-      Session.set('sign2', s[1]);
+      // var bw_gbk = new Buffer(bidword, 'GBK');
+      // var s = sign_fs64(bw_gbk); 
+      // Session.set('sign1', s[0]);
+      // Session.set('sign2', s[1]);
     },
   });
 
-  getPackageName = function() {
-    var p = Package['mrt:iconv-lite'];
-    console.log(p);
-    console.log(p.encode("abc", 'GBK'));
-    for(var packageName in Package) {
-        console.log(packageName);
-    } 
-}
-
-Meteor.startup(function() {
-    getPackageName(); 
-});
 }
 
 if (Meteor.isServer) {
+  var iconv = Meteor.npmRequire('iconv-lite');
+  Meteor.methods({
+    server_sign_fs64: function (bidword) {
+      var bw_gbk = iconv.encode(bidword, 'GBK');
+      console.log("bidword:", bidword);
+      console.log("bw gbk len:", bw_gbk.length);
+      var s = sign_fs64(bw_gbk); 
+      console.log(s[0], ":", s[1]);
+      return s;
+    }
+  });
+
   Meteor.startup(function () {
-    // code to run on server at startup
   });
 }

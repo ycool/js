@@ -9,3 +9,7 @@ autopublish
 insecure
 mrt:iconv-lite
 mrt:require
+meteorhacks:npm
+
+
+npm-container
