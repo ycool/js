@@ -1,7 +1,23 @@
+
 <head>
-    <title>Leaderboard</title>
+  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+ -->
+
 </head>
 
 <body>
-    <h1>Leaderboard</h1> {{> loginButtons}} {{> leaderboard}}
+  <div class="container">
+    <div class="logo"></div>
+    <h1 class="title">Leaderboard</h1>
+    <div class="subtitle">Select a scientist to give them points</div>
+    
+    {{> loginButtons}}
+    {{> leaderboard}} 
+  </div>
+
+
 </body>
+

@@ -7,3 +7,5 @@
 meteor-platform
 accounts-password
 accounts-ui
+accounts-facebook
+twbs:bootstrap
