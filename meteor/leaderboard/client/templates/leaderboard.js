@@ -1,9 +1,3 @@
-PlayersList = new Mongo.Collection('players');
-
-// counter starts at 0
-Session.setDefault('counter', 0);
-console.log("Hello world");
-
 
 Template.leaderboard.helpers({
     'player': function() {
@@ -48,13 +42,3 @@ Template.leaderboard.events({
     }
 });
 
-
-Template.addPlayerForm.events({
-    'submit form': function(event) {
-        event.preventDefault();
-        var playerNameVar = event.target.playerName.value;
-        Meteor.call('insertPlayerData', playerNameVar);
-    }
-});
-
-Meteor.subscribe('thePlayers');
