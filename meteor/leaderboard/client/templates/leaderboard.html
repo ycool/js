@@ -1,20 +1,24 @@
 
 
 <template name="leaderboard">
-    <ol class="leaderboard">
-    	{{#each player}}
-        	<li class="player {{selectedClass}}">{{name}}: {{score}}</li>
-    	{{/each}}
-	</ol>
+	<ul class="list-group">
+	<h3>
+		{{#each player}}
+	    	<li class="player {{selectedClass}} list-group-item">{{name}}: {{score}}</li>
+		{{/each}}
+		</h3>
+	</ul>
   <button type="button" class="increment btn btn-primary">+5 points</button>
   <button type="button" class="decrement btn btn-primary">-5 points</button>
 	{{#if showSelectedPlayer}}
-    	<li>Selected Player: {{showSelectedPlayer.name}}</li>
+	    <h3>
+    		<span class="lead">Selected Player: <strong> {{showSelectedPlayer.name}} </strong></span>
+    	</h3>
 	{{/if}}
 
 	{{#if currentUser}}
 		{{> addPlayerForm}}
 	{{/if}}	
-	<input type="button" class="remove" value="Remove Player">
+	<input type="button" class="remove btn btn-danger" value="Remove Player">
 </template>
 

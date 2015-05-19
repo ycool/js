@@ -13,7 +13,7 @@ Template.leaderboard.helpers({
         var playerId = this._id;
         var selectedPlayer = Session.get('selectedPlayer');
         if (playerId == selectedPlayer) {
-            return "selected";
+            return "active";
         }
     },
 
@@ -24,7 +24,7 @@ Template.leaderboard.helpers({
 });
 
 Template.leaderboard.events({
-    'click .player': function() {
+    'mouseenter .player': function() {
         var playerId = this._id; // mango rowID
         Session.set('selectedPlayer', playerId);
     },

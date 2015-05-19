@@ -1,6 +1,6 @@
 /* CSS declarations go here */
 
-
+/*
 .player {
     cursor: pointer;
     padding: 5px
@@ -20,11 +20,12 @@
     font-weight: bold;
     color: #777
 }
-
+*/
 .player.selected {
     background-color: yellow
 }
 
-.player.selected .score {
+/*.player.selected .score {
     color: black
 }
+*/

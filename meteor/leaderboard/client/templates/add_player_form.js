@@ -1,8 +1,8 @@
 
 Template.addPlayerForm.events({
-    'submit form': function(event) {
-        event.preventDefault();
-        var playerNameVar = event.target.playerName.value;
+    'click .add': function(event) {
+        console.log("click add button");        
+        var playerNameVar = $('#playerName').val();
         Meteor.call('insertPlayerData', playerNameVar);
     }
 });
