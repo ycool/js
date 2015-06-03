@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info window with <code>maxWidth</code></title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+
+        
+<script type="text/javascript">
+    var polygonData = [];
+</script>
+        
+<script type="text/javascript">
+var infoWinData = [[32.772574511925555, -97.12401488835661, "(06:35)\u5982\u4f55\u70f9\u996a\u5927\u867e | (06:35)\u5982\u4f55\u70f9\u996a\u5927\u867e", "http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png"], [32.77306085621232, -97.12415002910419, "(15:43)\u738b\u601d\u601d\u4e2a\u4eba\u8d44\u6599\u8001\u516c | (15:43)\u738b\u601d\u601d\u5fae\u535a | (15:43)\u738b\u601d\u601d\u5fae\u535a | (15:43)\u738b\u601d\u601d\u4e2a\u4eba\u8d44\u6599\u8001\u516c", "http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png"], [33.21585578514148, -97.15878950348943, "(06:04)center cut | (06:05)miniwtrmeloi | (06:05)reduced | (06:04)galgold | (06:04)galgold | (06:05)reduced | (06:04)center cut | (06:05)miniwtrmeloi", "http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png"], [30.406861660386973, -97.67738622229618, "(10:50)\u897f\u5b89\u5929\u6c14\u9884\u62a515\u5929 | (10:50)\u897f\u5b89\u5929\u6c14 | (10:50)\u897f\u5b89\u5929\u6c14\u9884\u62a515\u5929 | (10:50)\u897f\u5b89\u5929\u6c14", "http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png"]];
+</script>
+        
+<script type="text/javascript">                                                       
+    var markerData =  [];
+</script>
+        
+<script>
+    function initialize() {
+        //MARKER
+        for( var i = 0; i < markerData.length; i++ ) {
+            var position = new google.maps.LatLng(markerData[i][0], markerData[i][1]);
+            
+            marker = new google.maps.Marker({
+                                            position: position,
+                                            map: map,
+                                            title: markerData[i][2],
+                                            icon: 'http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png'
+                                            });
+        }
+
+        //INFO WINDOW
+        var infowindow = new google.maps.InfoWindow();
+        var marker, i;
+        for (i = 0; i < infoWinData.length; i++) {
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng(infoWinData[i][0], infoWinData[i][1]),
+              map: map,
+              icon: infoWinData[i][3],
+            });
+            
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                infowindow.setContent(infoWinData[i][2]);
+                infowindow.open(map, marker);
+              }
+            })(marker, i));
+        }
+        
+        //POLYGON
+        for (var i =0; i< polygonData.length; i++){
+            var polygonCoords = [];
+            for (var k =0; k< polygonData[i].length; k++){
+                polygonCoords.push(new google.maps.LatLng(polygonData[i][k][0],polygonData[i][k][1] ) );
+            }
+            var bermudaTriangle = new google.maps.Polygon({
+              paths: polygonCoords,
+              strokeColor: '#0000CD',
+              strokeOpacity: 0.6,
+              strokeWeight: 2,
+              fillColor: '#FFFFFF',
+              fillOpacity: 0.35
+              });
+            bermudaTriangle.setMap(map);
+        }
+    }
+</script>
+
+<script>
+    var mapCenter = new google.maps.LatLng(32.772574511925555, -97.12401488835661);
+    var mapOptions = {
+        zoom: 12,
+        center: mapCenter
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+       
+        
